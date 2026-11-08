@@ -26,8 +26,7 @@ change it in all five files.
 
 ## Filling in placeholders
 
-Search the HTML for `TODO`: press quotes, upcoming shows, video, representation, social links,
-and whether to put a phone number on the PDF.
+Search the HTML for `TODO`: press quotes, upcoming shows, video, representation, social links.
 
 ## Adding a photo
 
@@ -36,3 +35,5 @@ and whether to put a phone number on the PDF.
 
 Then copy a `<li><figure>…</figure></li>` block in `media.html` and write alt text that
 describes what is in the picture.
+
+The public resume PDF deliberately leaves out Spencer's phone number. Keep it off.

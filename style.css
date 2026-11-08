@@ -78,12 +78,14 @@ nav a:hover, nav a[aria-current="page"] { text-decoration: underline; text-decor
 /* The headshot is portrait, so show all of it on the left and let its edges fade
    into a backdrop sampled from the photo; the name sits on the plain backdrop. */
 .hero {
-  position: relative; height: min(100svh, 980px); min-height: 560px; overflow: hidden;
+  position: relative; height: min(100svh, 980px, calc(75vw + var(--header-h))); min-height: 520px; overflow: hidden;
   background: radial-gradient(ellipse at 35% 45%, #4a4248 0%, #3f383d 55%, #2f292d 100%);
 }
 .hero-img {
-  position: absolute; top: var(--header-h); bottom: 0; left: clamp(0px, 8vw, 140px);
-  height: calc(100% - var(--header-h)); width: auto; max-width: none;
+  /* height is capped at 75vw so the photo (2:3) never gets wider than ~50vw:
+     the face stays in the left half and the name in the right half */
+  position: absolute; bottom: 0; left: clamp(0px, 3vw, 64px);
+  height: min(calc(100% - var(--header-h)), 75vw); width: auto; max-width: none;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 80%, transparent 100%),
                       linear-gradient(to bottom, #000 85%, transparent 100%);
   -webkit-mask-composite: source-in; mask-composite: intersect;
@@ -91,18 +93,18 @@ nav a:hover, nav a[aria-current="page"] { text-decoration: underline; text-decor
               linear-gradient(to bottom, #000 85%, transparent 100%);
 }
 .hero-text {
-  position: absolute; z-index: 1; right: clamp(20px, 4vw, 56px); bottom: 18%;
+  position: absolute; z-index: 1; right: clamp(20px, 4vw, 56px); bottom: 18%; max-width: 42vw;
   text-align: right; color: #fff; text-shadow: 0 2px 18px rgb(0 0 0 / .35);
 }
 .hero h1 {
-  font-size: clamp(3rem, 7.5vw, 6.2rem); text-transform: uppercase; letter-spacing: -.02em;
+  font-size: clamp(2.6rem, 6.4vw, 6.2rem); text-transform: uppercase; letter-spacing: -.02em;
   line-height: .98; margin: 0 0 .35em;
 }
 .tagline { font-style: italic; font-size: clamp(1.1rem, 2vw, 1.45rem); margin: 0; }
 @media (max-width: 700px) {
   .hero { height: 92svh; }
-  .hero-img { left: 50%; transform: translateX(-50%); height: 78%; top: calc(var(--header-h) + 8px); }
-  .hero-text { left: 20px; right: 20px; bottom: 24px; text-align: center; }
+  .hero-img { left: 50%; transform: translateX(-50%); height: 78%; top: calc(var(--header-h) + 8px); bottom: auto; }
+  .hero-text { left: 20px; right: 20px; bottom: 24px; text-align: center; max-width: none; }
 }
 
 /* Press band */

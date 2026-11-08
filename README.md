@@ -17,4 +17,3 @@ representation, social links.
 
 Then copy a `<li><figure>…</figure></li>` block in the gallery and write alt text that
 describes what is in the picture.
-- Mephistopheles push test 2026-11-08

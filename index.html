@@ -9,91 +9,87 @@
   <meta property="og:description" content="Musical theater performer and tenor. Headshot, resume, production photos and contact.">
   <meta property="og:image" content="https://spencerorton.com/images/headshot-1280.webp">
   <meta property="og:url" content="https://spencerorton.com/">
-  <meta name="theme-color" content="#f6f1ea">
+  <meta name="theme-color" content="#213c4e">
   <link rel="canonical" href="https://spencerorton.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap header-inner">
+    <div class="header-inner">
       <a class="brand" href="#top">Spencer Orton</a>
       <nav aria-label="Main">
         <ul>
+          <li><a href="#top" aria-current="page">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#resume">Resume</a></li>
-          <li><a href="#photos">Photos</a></li>
-          <li><a href="#video">Video</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#photos">Media</a></li>
+          <li><a href="#contact">Connect</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero wrap" id="top" aria-labelledby="name">
+    <!-- HERO: full-bleed headshot with name overlaid -->
+    <section class="hero" id="top" aria-labelledby="name">
+      <img class="hero-img" src="images/headshot-1280.webp"
+           srcset="images/headshot-640.webp 640w, images/headshot-1333.webp 1333w"
+           sizes="100vw" width="1333" height="2000" fetchpriority="high"
+           alt="Headshot of Spencer Orton: dark hair, slight smile, rust-colored sweater against a gray backdrop.">
       <div class="hero-text">
-        <p class="eyebrow">Actor · Singer · Dancer</p>
-        <h1 id="name">Spencer Orton</h1>
-        <p class="lede">Musical theater performer and tenor (G2–G5), finishing a BFA in Musical Theater at Point Park University in May 2027.</p>
-        <ul class="facts" aria-label="At a glance">
-          <li><span>Voice</span> Tenor, G2–G5</li>
-          <li><span>Height</span> 5′8½″</li>
-          <li><span>Based in</span> Pittsburgh, PA</li>
-        </ul>
-        <p class="actions">
-          <a class="btn" href="#resume">View resume</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
-        </p>
+        <h1 id="name">Spencer<br>Orton</h1>
+        <p class="tagline">Actor, Singer, Dancer</p>
       </div>
-      <figure class="hero-photo">
-        <img src="images/headshot-640.webp"
-             srcset="images/headshot-640.webp 640w, images/headshot-1280.webp 1280w"
-             sizes="(min-width: 860px) 340px, 55vw"
-             width="640" height="960"
-             alt="Headshot of Spencer Orton: dark hair, slight smile, rust-colored sweater against a gray backdrop.">
-      </figure>
     </section>
 
-    <!-- PRESS (placeholder) -->
-    <section class="band" aria-labelledby="press-h">
+    <!-- PRESS: production photo + quotes on navy -->
+    <section class="press band-dark" aria-labelledby="press-h">
+      <h2 id="press-h" class="visually-hidden">Press</h2>
+      <div class="press-inner">
+        <figure class="press-photo">
+          <img src="images/deh-laptop-1280.webp" width="1280" height="1184" loading="lazy"
+               alt="Spencer as Jared in Dear Evan Hansen, seated on a ledge in a white tank top with a laptop on his lap.">
+        </figure>
+        <!-- TODO: replace with real review quotes; link the reviewer's name to the review -->
+        <div class="quotes">
+          <blockquote>
+            <p>“Review quote coming soon. Pull a line from a review that names <strong>Orton</strong> and says what he did well.”</p>
+            <footer>— Reviewer name, <strong>Publication</strong></footer>
+          </blockquote>
+          <blockquote>
+            <p>“A second review quote goes here.”</p>
+            <footer>— Reviewer name, <strong>Publication</strong></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING: alternating text / poster rows on light blue -->
+    <section class="upcoming band-light" aria-labelledby="upcoming-h">
       <div class="wrap">
-        <h2 id="press-h" class="visually-hidden">Press</h2>
-        <!-- TODO: replace with real review quotes and sources -->
-        <ul class="quotes">
-          <li>
-            <blockquote><p>“Review quote coming soon.”</p></blockquote>
-            <p class="cite">— Reviewer, Publication</p>
-          </li>
-          <li>
-            <blockquote><p>“Review quote coming soon.”</p></blockquote>
-            <p class="cite">— Reviewer, Publication</p>
-          </li>
-        </ul>
+        <h2 id="upcoming-h" class="display">Upcoming</h2>
+        <!-- TODO: one <article class="event"> per show. Swap the placeholder div for
+             <img src="images/POSTER.webp" alt="Poster for SHOW"> and add the ticket link. -->
+        <article class="event">
+          <div class="event-text">
+            <h3>Show Title TBA</h3>
+            <p class="event-venue">Venue</p>
+            <p>Date, Time</p>
+            <p><em>Spencer Orton as Role</em></p>
+            <!-- <a class="btn" href="TICKET_URL">Tickets<span class="visually-hidden"> for Show Title</span></a> -->
+          </div>
+          <div class="poster poster-placeholder" role="img" aria-label="Show poster coming soon">Poster coming soon</div>
+        </article>
       </div>
-    </section>
-
-    <!-- UPCOMING (placeholder) -->
-    <section class="wrap section" aria-labelledby="upcoming-h">
-      <h2 id="upcoming-h">Upcoming</h2>
-      <!-- TODO: add upcoming performances. Copy the <li> block per show. -->
-      <ul class="events">
-        <li class="event">
-          <p class="event-title">Show title TBA</p>
-          <p class="event-meta">Venue · Date · Time</p>
-          <p class="event-note">Role or song details.</p>
-          <!-- <a class="btn btn-small" href="TICKET_URL">Tickets<span class="visually-hidden"> for Show title</span></a> -->
-        </li>
-      </ul>
     </section>
 
     <!-- ABOUT -->
-    <section class="wrap section about" id="about" aria-labelledby="about-h">
+    <section class="section about band-paper" id="about" aria-labelledby="about-h">
       <h2 id="about-h">About</h2>
       <div class="about-grid">
         <div>
@@ -109,7 +105,7 @@
     </section>
 
     <!-- RESUME -->
-    <section class="band" id="resume" aria-labelledby="resume-h">
+    <section class="band-light" id="resume" aria-labelledby="resume-h">
       <div class="wrap section">
         <div class="section-head">
           <h2 id="resume-h">Resume</h2>
@@ -172,7 +168,7 @@
     </section>
 
     <!-- PHOTOS -->
-    <section class="wrap section" id="photos" aria-labelledby="photos-h">
+    <section class="section band-paper" id="photos" aria-labelledby="photos-h">
       <h2 id="photos-h">Production Photos</h2>
       <p class="hint">Select a photo to view it larger.</p>
       <ul class="gallery" data-gallery>
@@ -231,7 +227,7 @@
     </section>
 
     <!-- VIDEO (placeholder) -->
-    <section class="band" id="video" aria-labelledby="video-h">
+    <section class="band-light" id="video" aria-labelledby="video-h">
       <div class="wrap section">
         <h2 id="video-h">Video</h2>
         <!-- TODO: paste YouTube/Vimeo embed here. Give the iframe a title, e.g. title="Spencer Orton reel" -->
@@ -241,32 +237,32 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="wrap section" id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Contact</h2>
-      <div class="two-col">
+  </main>
+
+  <!-- CONNECT -->
+  <footer class="site-footer band-dark" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h" class="footer-name">Spencer Orton</h2>
+      <p class="footer-url">www.spencerorton.com</p>
+      <!-- TODO: add real handles, then uncomment
+      <ul class="social">
+        <li><a href="https://instagram.com/HANDLE" aria-label="Instagram">IG</a></li>
+        <li><a href="https://www.tiktok.com/@HANDLE" aria-label="TikTok">TT</a></li>
+        <li><a href="https://youtube.com/@HANDLE" aria-label="YouTube">YT</a></li>
+      </ul> -->
+      <div class="footer-contact">
         <div>
-          <h3>Spencer</h3>
-          <!-- TODO: swap to a @spencerorton.com address if you prefer -->
+          <h3>Contact</h3>
           <p><a href="mailto:smuhlbauer6@gmail.com">smuhlbauer6@gmail.com</a></p>
         </div>
         <div>
           <h3>Representation</h3>
-          <!-- TODO: agent / manager -->
+          <!-- TODO: agency logo, phone and agent emails -->
           <p>Agency TBA</p>
         </div>
       </div>
-      <!-- TODO: add real handles, then uncomment
-      <ul class="social">
-        <li><a href="https://instagram.com/HANDLE">Instagram</a></li>
-        <li><a href="https://www.tiktok.com/@HANDLE">TikTok</a></li>
-      </ul> -->
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© <span data-year>2026</span> Spencer Orton</p>
+      <p class="credits">Photos by Samper Images, Matthew Jorstad Photography. <!-- TODO: other photographers --></p>
+      <p class="credits">© <span data-year>2026</span> Spencer Orton</p>
     </div>
   </footer>
 

@@ -13,41 +13,55 @@
   <link rel="canonical" href="https://spencerorton.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">Spencer Orton</a>
-      <nav aria-label="Main">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="headshot-resume.html">H<span class="visually-hidden">eadshot</span> + R<span class="visually-hidden">esume</span></a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="connect.html">Connect</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- Thin floating header over hero -->
+  <header class="site-header" id="site-header">
+    <a class="brand" href="index.html">Spencer Orton</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay">
+      <span></span><span></span>
+    </button>
   </header>
 
-  <main id="main" class="home">
-    <!-- HERO: full-bleed headshot with name overlaid -->
+  <!-- Full-screen menu overlay -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <div class="menu-overlay-top">
+      <span class="menu-name">Spencer Orton</span>
+      <button class="menu-close" id="menu-close" aria-label="Close menu">×</button>
+    </div>
+    <nav class="menu-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="headshot-resume.html">H + R</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="connect.html">News</a></li>
+        <li><a href="connect.html">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO: full-screen edge-to-edge portrait -->
     <section class="hero" id="top" aria-labelledby="name">
       <img class="hero-img" src="images/headshot-1280.webp"
            srcset="images/headshot-640.webp 640w, images/headshot-1333.webp 1333w"
            sizes="100vw" width="1333" height="2000" fetchpriority="high"
-           alt="Headshot of Spencer Orton: dark hair, slight smile, rust-colored sweater against a gray backdrop.">
+           alt="Headshot of Spencer Orton: dark hair, slight smile, rust-colored sweater against a muted olive-gray backdrop.">
       <div class="hero-text">
-        <h1 id="name">Spencer<br>Orton</h1>
+        <h1 id="name">
+          <span class="hero-first">Spencer</span>
+          <span class="hero-last">Orton</span>
+        </h1>
         <p class="tagline">Actor, Singer, Dancer</p>
       </div>
     </section>
 
-    <!-- PRESS: production photo + quotes on navy -->
+    <!-- NAVY SECTION: begins immediately under the hero, no gap -->
     <section class="press band-dark" aria-labelledby="press-h">
       <h2 id="press-h" class="visually-hidden">Press</h2>
       <div class="press-inner">
@@ -58,30 +72,27 @@
         <!-- TODO: replace with real review quotes; link the reviewer's name to the review -->
         <div class="quotes">
           <blockquote>
-            <p>“Review quote coming soon. Pull a line from a review that names <strong>Orton</strong> and says what he did well.”</p>
+            <p>"Review quote coming soon. Pull a line from a review that names <strong>Orton</strong> and says what he did well."</p>
             <footer>— Reviewer name, <strong>Publication</strong></footer>
           </blockquote>
           <blockquote>
-            <p>“A second review quote goes here.”</p>
+            <p>"A second review quote goes here."</p>
             <footer>— Reviewer name, <strong>Publication</strong></footer>
           </blockquote>
         </div>
       </div>
     </section>
 
-    <!-- UPCOMING: alternating text / poster rows on light blue -->
+    <!-- UPCOMING -->
     <section class="upcoming band-light" aria-labelledby="upcoming-h">
       <div class="wrap">
         <h2 id="upcoming-h" class="display">Upcoming</h2>
-        <!-- TODO: one <article class="event"> per show. Swap the placeholder div for
-             <img src="images/POSTER.webp" alt="Poster for SHOW"> and add the ticket link. -->
         <article class="event">
           <div class="event-text">
             <h3>Show Title TBA</h3>
             <p class="event-venue">Venue</p>
             <p>Date, Time</p>
             <p><em>Spencer Orton as Role</em></p>
-            <!-- <a class="btn" href="TICKET_URL">Tickets<span class="visually-hidden"> for Show Title</span></a> -->
           </div>
           <div class="poster poster-placeholder" role="img" aria-label="Show poster coming soon">Poster coming soon</div>
         </article>
@@ -94,12 +105,6 @@
     <div class="wrap">
       <h2 id="contact-h" class="footer-name">Spencer Orton</h2>
       <p class="footer-url">www.spencerorton.com</p>
-      <!-- TODO: add real handles, then uncomment
-      <ul class="social">
-        <li><a href="https://instagram.com/HANDLE" aria-label="Instagram">IG</a></li>
-        <li><a href="https://www.tiktok.com/@HANDLE" aria-label="TikTok">TT</a></li>
-        <li><a href="https://youtube.com/@HANDLE" aria-label="YouTube">YT</a></li>
-      </ul> -->
       <div class="footer-contact">
         <div>
           <h3>Contact</h3>
@@ -107,11 +112,10 @@
         </div>
         <div>
           <h3>Representation</h3>
-          <!-- TODO: agency logo, phone and agent emails -->
           <p>Agency TBA</p>
         </div>
       </div>
-      <p class="credits">Photos by Samper Images, Matthew Jorstad Photography. <!-- TODO: other photographers --></p>
+      <p class="credits">Photos by Samper Images, Matthew Jorstad Photography.</p>
       <p class="credits">© <span data-year>2026</span> Spencer Orton</p>
     </div>
   </footer>

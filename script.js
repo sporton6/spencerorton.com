@@ -57,3 +57,31 @@ document.addEventListener('keydown', (e) => {
 menuOverlay?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', closeMenu);
 });
+
+// ===== Connect form: async submit via mailto fallback =====
+const connectForm = document.getElementById('connect-form');
+const formStatus = document.getElementById('form-status');
+
+if (connectForm) {
+  connectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fn = document.getElementById('first-name')?.value || '';
+    const ln = document.getElementById('last-name')?.value || '';
+    const em = document.getElementById('email')?.value || '';
+    const ph = document.getElementById('phone')?.value || '';
+    const msg = document.getElementById('message')?.value || '';
+
+    const subject = encodeURIComponent(`New inquiry from spencerorton.com — ${fn} ${ln}`);
+    const body = encodeURIComponent(
+      `Name: ${fn} ${ln}\n` +
+      `Email: ${em}\n` +
+      `Phone: ${ph || '—'}\n\n` +
+      `Message:\n${msg}`
+    );
+
+    window.location.href = `mailto:smuhlbauer6@gmail.com?subject=${subject}&body=${body}`;
+    if (formStatus) {
+      formStatus.textContent = 'Your email app is opening. If it doesn’t, email smuhlbauer6@gmail.com directly.';
+    }
+  });
+}

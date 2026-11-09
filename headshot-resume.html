@@ -19,20 +19,28 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">Spencer Orton</a>
-      <nav aria-label="Main">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="headshot-resume.html" aria-current="page">H<span class="visually-hidden">eadshot</span> + R<span class="visually-hidden">esume</span></a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="connect.html">Connect</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="site-header" id="site-header">
+    <a class="brand" href="index.html">Spencer Orton</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay">
+      <span></span><span></span>
+    </button>
   </header>
+
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+    <div class="menu-overlay-top">
+      <span class="menu-name">Spencer Orton</span>
+      <button class="menu-close" id="menu-close" aria-label="Close menu">×</button>
+    </div>
+    <nav class="menu-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="headshot-resume.html" aria-current="page">H + R</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="connect.html">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <main id="main" class="page">
     <section class="section band-light" aria-labelledby="page-h">

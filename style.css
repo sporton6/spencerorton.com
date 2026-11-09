@@ -141,7 +141,22 @@ cite { font-style: italic; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 28% 30%;
+  object-position: 30% 25%;
+}
+
+/* Gradient overlay: darkens the right edge so text is readable without
+   covering the face. Face occupies ~22%-84% of image width. */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  /* Desktop: gradient from right side */
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 60%,
+    rgb(24 34 65 / .15) 72%,
+    rgb(24 34 65 / .55) 82%,
+    rgb(24 34 65 / .75) 100%
+  );
 }
 
 /* Text overlay: right side, mid-height, right-aligned, deep navy */
@@ -152,8 +167,8 @@ cite { font-style: italic; }
   transform: translateY(-50%);
   z-index: 2;
   text-align: right;
-  padding-right: clamp(20px, 5vw, 64px);
-  max-width: 50vw;
+  padding-right: clamp(20px, 4vw, 56px);
+  max-width: 25vw;
   color: var(--ink);
 }
 
@@ -189,34 +204,49 @@ cite { font-style: italic; }
 .press { margin: 0; padding-block: 72px; }
 
 /* ===== Mobile hero adjustments ===== */
+/* On narrow screens the portrait face fills the full width.
+   Move text to the bottom with a gradient from below so the face stays clear. */
 @media (max-width: 700px) {
   .hero-img {
-    object-position: 25% 25%;
+    object-position: 25% 20%;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgb(24 34 65 / .82) 0%,
+      rgb(24 34 65 / .55) 15%,
+      rgb(24 34 65 / .15) 28%,
+      transparent 40%
+    );
   }
   .hero-text {
+    left: 0;
     right: 0;
-    top: 52%;
-    padding-right: 20px;
-    max-width: 62vw;
+    bottom: 0;
+    top: auto;
+    transform: none;
+    text-align: right;
+    padding: 0 20px 28px;
+    max-width: none;
   }
-  .hero-first { font-size: clamp(2.8rem, 16vw, 5.5rem); }
-  .hero-last  { font-size: clamp(2.2rem, 12.5vw, 4.4rem); }
-  .tagline { font-size: clamp(.95rem, 3.5vw, 1.3rem); }
+  .hero-first { font-size: clamp(2.8rem, 14vw, 5rem); }
+  .hero-last  { font-size: clamp(2.2rem, 11vw, 4rem); }
+  .tagline { font-size: clamp(.95rem, 3.2vw, 1.3rem); }
 }
 
 @media (max-width: 400px) {
-  .hero-text { max-width: 70vw; }
-  .hero-first { font-size: 2.6rem; }
-  .hero-last  { font-size: 2.05rem; }
-  .tagline { font-size: .9rem; }
+  .hero-text { padding: 0 16px 22px; }
+  .hero-first { font-size: 2.4rem; }
+  .hero-last  { font-size: 1.9rem; }
+  .tagline { font-size: .85rem; }
 }
 
-/* Landscape phones: keep photo full-screen, text lower */
+/* Landscape phones: keep photo full-screen, text at bottom-right */
 @media (max-height: 500px) and (orientation: landscape) {
-  .hero-text { top: 58%; }
-  .hero-first { font-size: clamp(2rem, 8vw, 4rem); }
-  .hero-last { font-size: clamp(1.6rem, 6.5vw, 3.2rem); }
-  .tagline { font-size: .95rem; }
+  .hero-text { top: auto; bottom: 16px; transform: none; max-width: 40vw; }
+  .hero-first { font-size: clamp(2rem, 7vw, 3.5rem); }
+  .hero-last { font-size: clamp(1.6rem, 5.5vw, 2.8rem); }
+  .tagline { font-size: .9rem; }
 }
 
 /* ===== Press band ===== */

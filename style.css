@@ -135,28 +135,21 @@ cite { font-style: italic; }
   background: var(--olive);
 }
 
-/* The photo fills the entire screen, object-position tuned so the face
-   sits upper-left-to-center and the right side stays open for text */
+/* The photo is a 2:3 portrait. On desktop (landscape viewport) object-fit: cover
+   zooms into a tiny slice. Use contain so the full headshot is visible,
+   left-aligned, with the olive background filling the right side for text. */
 .hero-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 30% 25%;
+  object-fit: contain;
+  object-position: left center;
 }
 
-/* Gradient overlay: darkens the right edge so text is readable without
-   covering the face. Face occupies ~22%-84% of image width. */
+/* Gradient overlay: only needed on mobile where cover is used.
+   On desktop, the right side is solid olive background (contain mode). */
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  /* Desktop: gradient from right side */
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    transparent 60%,
-    rgb(28 36 16 / .15) 72%,
-    rgb(28 36 16 / .55) 82%,
-    rgb(28 36 16 / .75) 100%
-  );
+  display: none;
 }
 
 /* Text overlay: right side, mid-height, right-aligned, deep navy */
@@ -167,8 +160,8 @@ cite { font-style: italic; }
   transform: translateY(-50%);
   z-index: 2;
   text-align: right;
-  padding-right: clamp(20px, 4vw, 56px);
-  max-width: 25vw;
+  padding-right: clamp(20px, 5vw, 72px);
+  max-width: 45vw;
   color: var(--ink);
 }
 
@@ -208,9 +201,11 @@ cite { font-style: italic; }
    Move text to the bottom with a gradient from below so the face stays clear. */
 @media (max-width: 700px) {
   .hero-img {
+    object-fit: cover;
     object-position: 25% 20%;
   }
   .hero-overlay {
+    display: block;
     background: linear-gradient(
       to top,
       rgb(28 36 16 / .82) 0%,
